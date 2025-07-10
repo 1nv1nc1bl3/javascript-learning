@@ -99,36 +99,142 @@
 // };
 // checkWinner(scoreDolphins, scoreKoalas);
 
-/* ************************** */
+/* **************************************************** */
 /* ARRAYS */
-const friends = ['Michael', 'Steven', 'Peter'];
-console.log(friends);
-console.log(friends.length);
-console.log(friends[friends.length - 1]);
+// const friends = ['Michael', 'Steven', 'Peter'];
+// console.log(friends);
+// console.log(friends.length);
+// console.log(friends[friends.length - 1]);
 
-const year = new Array(1991, 1984, 2008, 2020);
+// const year = new Array(1991, 1984, 2008, 2020);
 
-friends[2] = 'Jay';
-console.log(friends);
+// friends[2] = 'Jay';
+// console.log(friends);
 
-const firstName = 'Jonas';
-const jonas = [firstName, 'Pattinson', 20, 'teacher', friends];
-console.log(jonas);
+// const firstName = 'Jonas';
+// const jonas = [firstName, 'Pattinson', 20, 'teacher', friends];
+// console.log(jonas);
 
-// Exercise
-const calcAge = function (birthYear) {
-    return 2037 - birthYear;
+// // Exercise
+// const calcAge = function (birthYear) {
+//     return 2037 - birthYear;
+// };
+// const years = [1990, 1967, 2002, 2010, 2018];
+
+// const age10 = calcAge(years[0]);
+// const age11 = calcAge(years[1]);
+// const age14 = calcAge(years[years.length - 1]);
+// console.log(age10, age11, age14);
+
+// const ages = [
+//     calcAge(years[0]),
+//     calcAge(years[1]),
+//     calcAge(years[years.length - 1]),
+// ];
+// console.log(ages);
+
+/* **************************************************** */
+/* ARRAY METHODS */
+// const friends = ['Michael', 'Steven', 'Peter'];
+// console.log(friends);
+
+// // Add elements
+// friends.push('Jay'); // adds element at the end + stores array's length
+// console.log(friends);
+
+// friends.unshift('John'); // adds element at the start + stores array's length
+// console.log(friends);
+
+// // Remove elements
+// friends.pop(); // removes last element + returns removed element
+// console.log(friends);
+
+// friends.shift(); // removes first element + returns removed element
+// console.log(friends);
+
+// console.log(friends.indexOf('Steven')); // shows index number of requested element
+// console.log(friends.indexOf('Bob')); // if there isn't such an element it returns -1
+
+// console.log(friends.includes('Steven')); // true: if there is
+// console.log(friends.includes('Bob')); // false: if there isn't
+
+// if (friends.includes('Steven')) {
+//     console.log('You have a friend called Steven');
+// }
+
+// // Exercise 6: Chalenge #2
+// const calcTip = function (bill) {
+//     let tip =
+//         bill >= 50 && bill <= 300 ? Number(bill * 0.15) : Number(bill * 0.2);
+//     let total = Number(bill + tip);
+//     return tip;
+// };
+
+// const bills = [125, 555, 44];
+
+// const tips = [];
+// const totals = [];
+
+// tips.push(calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2]));
+// totals.push(bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]);
+
+// console.log(bills, tips, totals);
+
+/* **************************************************** */
+/* OBJECTS */
+// const jonas = {
+//     // firstName is a property of the Object
+//     firstName: 'Jonas',
+//     lastName: 'Shmedtmann',
+//     age: 2037 - 1991,
+//     job: 'teacher',
+//     friends: ['Michael', 'Peter', 'Steven'],
+// };
+// console.log(jonas);
+
+// console.log(jonas.lastName);
+
+// // Challenge
+// console.log(
+//     `${jonas.firstName} has ${jonas.friends.length} friends, and his best friend is called ${jonas.friends[0]}`
+// );
+
+/* **************************************************** */
+/* OBJECT METHODS */
+const jonas = {
+    firstName: 'Jonas',
+    lastName: 'Shmedtmann',
+    birthYear: 1991,
+    job: 'teacher',
+    friends: ['Michael', 'Peter', 'Steven'],
+    hasDriversLicense: true,
+
+    //     calcAge: function (birthYear) {
+    //         return 2037 - birthYear;
+    //     },
+
+    calcAge: function () {
+        console.log(this);
+        return 2037 - this.birthYear;
+    },
+
+    calcAge: function () {
+        this.age = 2037 - this.birthYear;
+        return this.age;
+    },
+
+    getSummary: function () {
+        this.summary = `${this.firstName} is a ${this.calcAge()}-year old ${
+            this.job
+        } and he has ${this.hasDriversLicense ? 'a' : 'no'} driver's license.`;
+        return this.summary;
+    },
 };
-const years = [1990, 1967, 2002, 2010, 2018];
 
-const age10 = calcAge(years[0]);
-const age11 = calcAge(years[1]);
-const age14 = calcAge(years[years.length - 1]);
-console.log(age10, age11, age14);
+// console.log(jonas.calcAge(jonas.birthYear));
+console.log(jonas.calcAge());
+console.log(jonas.age);
+console.log(jonas.age);
+console.log(jonas.age);
 
-const ages = [
-    calcAge(years[0]),
-    calcAge(years[1]),
-    calcAge(years[years.length - 1]),
-];
-console.log(ages);
+console.log(jonas.getSummary());
