@@ -201,40 +201,196 @@
 
 /* **************************************************** */
 /* OBJECT METHODS */
-const jonas = {
-    firstName: 'Jonas',
-    lastName: 'Shmedtmann',
-    birthYear: 1991,
-    job: 'teacher',
-    friends: ['Michael', 'Peter', 'Steven'],
-    hasDriversLicense: true,
+// const jonas = {
+//     firstName: 'Jonas',
+//     lastName: 'Shmedtmann',
+//     birthYear: 1991,
+//     job: 'teacher',
+//     friends: ['Michael', 'Peter', 'Steven'],
+//     hasDriversLicense: true,
 
-    //     calcAge: function (birthYear) {
-    //         return 2037 - birthYear;
-    //     },
+//     //     calcAge: function (birthYear) {
+//     //         return 2037 - birthYear;
+//     //     },
 
-    calcAge: function () {
-        console.log(this);
-        return 2037 - this.birthYear;
-    },
+//     calcAge: function () {
+//         console.log(this);
+//         return 2037 - this.birthYear;
+//     },
 
-    calcAge: function () {
-        this.age = 2037 - this.birthYear;
-        return this.age;
-    },
+//     calcAge: function () {
+//         this.age = 2037 - this.birthYear;
+//         return this.age;
+//     },
 
-    getSummary: function () {
-        this.summary = `${this.firstName} is a ${this.calcAge()}-year old ${
-            this.job
-        } and he has ${this.hasDriversLicense ? 'a' : 'no'} driver's license.`;
-        return this.summary;
-    },
+//     getSummary: function () {
+//         this.summary = `${this.firstName} is a ${this.calcAge()}-year old ${
+//             this.job
+//         } and he has ${this.hasDriversLicense ? 'a' : 'no'} driver's license.`;
+//         return this.summary;
+//     },
+// };
+
+// // console.log(jonas.calcAge(jonas.birthYear));
+// console.log(jonas.calcAge());
+// console.log(jonas.age);
+// console.log(jonas.age);
+// console.log(jonas.age);
+
+// console.log(jonas.getSummary());
+
+/* **************************************************** */
+/* CHALLENGE #3 */
+
+// const mark = {
+//     fullName: 'Mark Miller',
+//     mass: 78,
+//     height: 1.69,
+
+//     calcBMI: function () {
+//         this.bmi = this.mass / (this.height * this.height);
+//         return this.bmi;
+//     },
+// };
+// const john = {
+//     fullName: 'John Smith',
+//     mass: 92,
+//     height: 1.95,
+
+//     calcBMI: function () {
+//         this.bmi = this.mass / (this.height * this.height);
+//         return this.bmi;
+//     },
+// };
+
+// mark.calcBMI();
+// john.calcBMI();
+// console.log(mark.bmi);
+// console.log(john.bmi);
+
+// const compareBMI =
+//     john.bmi > mark.bmi
+//         ? `${john.fullName}'s BMI (${john.bmi.toFixed(2)}) is higher than ${
+//               mark.fullName
+//           }'s (${mark.bmi.toFixed(2)})!`
+//         : `${mark.fullName}'s BMI (${mark.bmi.toFixed(2)}) is higher than ${
+//               john.fullName
+//           }'s (${john.bmi.toFixed(2)})!`;
+
+// console.log(compareBMI);
+
+/* **************************************************** */
+/* LOOPS */
+// 'FOR' LOOP
+// for (let i = 1; i <= 10; i++) {
+//     console.log(`Lifting weights repetition ${i} 🏋️`);
+// }
+
+//
+// const jonasArray = [
+//     'Jonas',
+//     'Smedtman',
+//     2037 - 1991,
+//     'teacher',
+//     ['Michael', 'Peter', 'Steven'],
+//     true,
+// ];
+
+// const types = [];
+
+// for (let i = 0; i < jonasArray.length; i++) {
+//     console.log(jonasArray[i]);
+
+//     // Filling 'types' array
+//     //     types[i] = typeof jonasArray[i];
+//     types.push(typeof jonasArray[i]);
+// }
+
+// console.log(types);
+
+// // continue and break
+// console.log('--- STRINGS ONLY ---');
+// for (let i = 0; i < jonasArray.length; i++) {
+//     if (typeof jonasArray[i] !== 'string') continue;
+//     console.log(jonasArray[i], typeof jonasArray[i]);
+// }
+
+// console.log('--- BREAK WITH NUMBER ---');
+// for (let i = 0; i < jonasArray.length; i++) {
+//     if (typeof jonasArray[i] === 'number') break;
+//     console.log(jonasArray[i], typeof jonasArray[i]);
+// }
+
+/* **************************************************** */
+/* LOOPING BACKWARDS & LOOPS IN LOOPS */
+// Looping backwards
+// const jonasArray = [
+//     'Jonas',
+//     'Smedtman',
+//     2037 - 1991,
+//     'teacher',
+//     ['Michael', 'Peter', 'Steven'],
+//     true,
+// ];
+
+// for (let i = jonasArray.length - 1; i >= 0; i--) {
+//     console.log(i, jonasArray[i]);
+// }
+
+// loop in loop
+// for (let exercise = 1; exercise < 4; exercise++) {
+//     console.log(`------- STARTING EXERCISE ${exercise}`);
+//     for (let rep = 1; rep < 6; rep++) {
+//         console.log(`Lifting weights repetition ${rep} 🏋️`);
+//     }
+// }
+
+/* **************************************************** */
+/* WHILE LOOP */
+// console.log('--- FROM <FOR> LOOP ---');
+// for (let i = 1; i <= 10; i++) {
+//     console.log(`Lifting weights repetition ${i} 🏋️`);
+// }
+// console.log('--- FROM <WHILE> LOOP ---');
+// let i = 1;
+// while (i <= 10) {
+//     console.log(`Lifting weights repetition ${i} 🏋️`);
+//     i++;
+// }
+
+// Exercise
+// let dice = Math.trunc(Math.random() * 6) + 1;
+// while (dice !== 6) {
+//     console.log(`You rolled a  ${dice}`);
+//     dice = Math.trunc(Math.random() * 6) + 1;
+//     if (dice === 6) console.log('Loop ends here!');
+// }
+
+/* **************************************************** */
+/* CHALLENGE #4 */
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+let tips = [];
+let totals = [];
+const calcTip = function (bill) {
+    return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
 };
 
-// console.log(jonas.calcAge(jonas.birthYear));
-console.log(jonas.calcAge());
-console.log(jonas.age);
-console.log(jonas.age);
-console.log(jonas.age);
+for (let res = 0; res < bills.length; res++) {
+    tips.push(calcTip(bills[res]));
+    totals.push(bills[res] + tips[res]);
+}
+console.log(`The bills are: ${bills}`);
+console.log(`The tips are: ${tips}`);
+console.log(`The totals are: ${totals}`);
 
-console.log(jonas.getSummary());
+function calcAverage(arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+    let average = sum / arr.length;
+    return average;
+    //     console.log(average);
+}
+
+console.log(`The average of the bill totals is: ${calcAverage(totals)}`);
