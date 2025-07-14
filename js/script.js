@@ -1,85 +1,51 @@
 'use strict';
 
-// console.log(document.querySelector('.message').textContent);
+const modals = {
+    modalOne: {
+        title: "I'm modal window One",
+        text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    },
+    modalTwo: {
+        title: "I'm modal window Two",
+        text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    },
+    modalThree: {
+        title: "I'm modal window Three",
+        text: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    },
+};
 
-// document.querySelector('.message').textContent = '🎉 Correct number';
-// document.querySelector('.number').textContent = 13;
-// document.querySelector('.score').textContent = 10;
+// Assign selectors to variables
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+const btnCloseModal = document.querySelector('.close-modal');
+const btnsOpenModal = document.querySelectorAll('.show-modal');
+let i;
 
-// document.querySelector('.guess').value = 23;
-// document.querySelector('');
-// document.querySelector('');
-// document.querySelector('');
-// document.querySelector('');
-// document.querySelector('');
-// document.querySelector('');
+// Functions
+const closeModal = function () {
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
+};
+const openModal = function () {
+    modal.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+};
 
-let secretNumber = Math.trunc(Math.random() * 20) + 1;
-let score = 20;
-let highscore = 0;
+// Opening the modal
+for (i = 0; i < btnsOpenModal.length; i++) {
+    btnsOpenModal[i].addEventListener('click', openModal);
+}
 
-// document.querySelector('.number').textContent = '?';
-// console.log(number);
+// Closing the modal by clicking the 'X' button
+btnCloseModal.addEventListener('click', closeModal);
 
-document.querySelector('.check').addEventListener('click', function () {
-    const guess = Number(document.querySelector('.guess').value);
-    // console.log(guess, typeof guess);
+// Closing the modal by clicking on overlay
+overlay.addEventListener('click', closeModal);
 
-    // When there is no input
-    if (!guess) {
-        document.querySelector('.message').textContent = '⛔ No number!';
-
-        // When player wins
-    } else if (guess === secretNumber) {
-        document.querySelector('.message').textContent = '🎉 Correct Number!';
-        document.querySelector('.number').textContent = secretNumber;
-
-        if (score > highscore) {
-            highscore = score;
-
-            document.querySelector('.highscore').textContent = highscore;
-        }
-
-        document.querySelector('body').style.backgroundColor = '#60b347';
-        document.querySelector('.number').style.width = '30rem';
-
-        // When guess is wrong
-    } else if (guess !== secretNumber) {
-        // When guess is too high
-    } else if (guess > secretNumber) {
-        if (score > 1) {
-            document.querySelector('.message').textContent = '📈 Too high!';
-            score--;
-            document.querySelector('.score').textContent = score;
-        } else {
-            document.querySelector('.score').textContent = 0;
-            document.querySelector('.message').textContent =
-                '💥 You lost the game!';
-        }
-
-        // When guess is too low
-    } else if (guess < secretNumber) {
-        if (score > 1) {
-            document.querySelector('.message').textContent = '📉 Too low!';
-            score--;
-            document.querySelector('.score').textContent = score;
-        } else {
-            document.querySelector('.score').textContent = 0;
-            document.querySelector('.message').textContent =
-                '💥 You lost the game!';
-        }
+// Closing the modal by pressing the ESC button
+document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+        closeModal();
     }
-});
-
-// Button 'Again'
-document.querySelector('.again').addEventListener('click', function () {
-    score = 20;
-    secretNumber = Math.trunc(Math.random() * 20) + 1;
-
-    document.querySelector('.message').textContent = 'Start guessing...';
-    document.querySelector('.score').textContent = score;
-    document.querySelector('.number').textContent = '?';
-    document.querySelector('.guess').value = '';
-    document.querySelector('body').style.backgroundColor = '#222';
-    document.querySelector('.number').style.width = '15rem';
 });
